@@ -1,0 +1,33 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/arifureta/vichesta_ws/devel/include/**",
+        "/home/arifureta/catkin_ws/devel/include/**",
+        "/opt/ros/noetic/include/**",
+        "/home/arifureta/vichesta_ws/src/Vichesta-22-Takshak/gazebo-conveyor/include/**",
+        "/home/arifureta/catkin_ws/src/gazebo_ros_pkgs/gazebo_plugins/include/**",
+        "/home/arifureta/catkin_ws/src/gazebo_ros_pkgs/gazebo_ros/include/**",
+        "/home/arifureta/catkin_ws/src/gazebo_ros_pkgs/gazebo_ros_control/include/**",
+        "/home/arifureta/vichesta_ws/src/Vichesta-22-Takshak/AgriBot/gazebo_ros_link_attacher/include/**",
+        "/home/arifureta/catkin_ws/src/pkg_ros_actions/include/**",
+        "/home/arifureta/catkin_ws/src/pkg_ros_basics/include/**",
+        "/home/arifureta/vichesta_ws/src/Vichesta-22-Takshak/AgriBot/robotiq_85_gripper-master/robotiq_85_simulation/roboticsgroup_gazebo_plugins/include/**",
+        "/home/arifureta/catkin_ws/src/turtlebot3_simulations/turtlebot3_fake/include/**",
+        "/home/arifureta/catkin_ws/src/turtlebot3_simulations/turtlebot3_gazebo/include/**",
+        "/home/arifureta/catkin_ws/src/task_2_boilerplate/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}

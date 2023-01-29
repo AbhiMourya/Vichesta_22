@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+
+<!--  
+  Project Name: ebot simulator
+  Created on:   2.10.2020
+  Author: Saail 
+  Maintainer: ROS team
+  Copyright (c) 2020 eYantra IITB 
+
+This is an urdf for agri_bot with base robot as ebot
+
+This urdf is optimized to work only with gazebo simulator.
+(trolley and rg2 are not optimized.(meaning collision are mesh files)
+-->
+
+
+<robot name="agribot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<!-- ebot with  gripper-->
+  <xacro:include filename="$(find ebot_gazebo)/urdf/ebot_trolley_ur5.xacro" />
+
+<!--     basket -->
+<link
+    name="basket">
+
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+
+        <mesh
+          filename="package://ebot_gazebo/meshes/basket.STL" scale="0.001 0.001 0.001" />
+      </geometry>
+
+    </visual>
+
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+               <mesh
+          filename="package://ebot_gazebo/meshes/basket.STL" scale="0.001 0.001 0.001" />
+
+      </geometry>
+    </collision>
+  </link>
+
+
+    <joint
+    name="ebot_basket"
+    type="fixed">
+    <origin
+      xyz=" 0.25 -0.30 0.35"
+      rpy="1.57 0 1.57" />
+    <parent
+      link="ebot_base" />
+    <child
+      link="basket" />
+
+  </joint> 
+
+</robot>

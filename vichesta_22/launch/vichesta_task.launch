@@ -1,0 +1,30 @@
+<launch>
+<!--  ebot with ur5 -->
+    <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find ebot_gazebo)/urdf/agri_bot.xacro'"/>
+  
+
+    <arg name="x" default="-1"/>
+    <arg name="y" default="2"/>
+    <arg name="z" default="0.18"/>
+    <arg name="yaw" default="1.57"/> 
+
+
+<!-- Spawn the robot model -->
+    <node name="mybot_spawn" pkg="gazebo_ros" type="spawn_model" output="screen" 
+        args="-urdf -param robot_description -model ebot -x $(arg x) -y $(arg y) -z $(arg z) -Y $(arg yaw) " />
+
+<!-- load tomato plant with eyantra greenhouse model -->
+    <include file="$(find vichesta_22)/launch/world.launch"/>
+
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+
+  <rosparam file="$(find agribot_moveit_config)/config/gazebo_controllers.yaml" />
+  <node name="gazebo_controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="joint_state_controller" />
+  <include file="$(find agribot_moveit_config)/launch/ros_controllers.launch"/>
+
+  <include file="$(find agribot_moveit_config)/launch/demo.launch" pass_all_args="true">
+    <arg name="load_robot_description" value="false" />
+    <arg name="moveit_controller_manager" value="ros_control" />
+  </include>
+
+</launch>
